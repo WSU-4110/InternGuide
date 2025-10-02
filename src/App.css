@@ -1,42 +1,198 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.layout {
+  min-height: 100vh;
+  background: #f7f9fc;
+  color: #1b2738;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  background: #1f4fd6;
+  color: #ffffff;
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 6vw, 7rem);
+}
+
+.hero__body {
+  max-width: 48rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero__tag {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.1;
+}
+
+.hero p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.button--primary {
+  background: #ffffff;
+  color: #1f4fd6;
+  box-shadow: 0 10px 24px rgba(9, 25, 60, 0.18);
+}
+
+.button--secondary {
+  background: #ffb347;
+  color: #1b2738;
+  box-shadow: 0 12px 26px rgba(255, 179, 71, 0.32);
+}
+
+.button--primary:hover,
+.button--primary:focus-visible,
+.button--secondary:hover,
+.button--secondary:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(9, 25, 60, 0.2);
+}
+
+.main-content {
+  flex: 1;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 7rem) clamp(4rem, 7vw, 6rem);
+  display: grid;
+  gap: clamp(3rem, 7vw, 5rem);
+}
+
+.section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.section__intro {
+  margin: 0;
+  color: #4a556d;
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.feature-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 12px 28px rgba(18, 33, 60, 0.08);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.feature-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.feature-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+  color: #4a556d;
+  line-height: 1.5;
+}
+
+.section--muted {
+  background: #eef3ff;
+  border-radius: 20px;
+  padding: clamp(2rem, 5vw, 3rem);
+}
+
+.roadmap-callout {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 20px rgba(17, 40, 105, 0.08);
+  display: grid;
+  gap: 0.75rem;
+  color: #31405b;
+}
+
+.trust-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+  color: #42506c;
+  line-height: 1.6;
+}
+
+.contact-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 10px 24px rgba(18, 33, 60, 0.08);
+}
+
+.contact-card h3 {
+  margin-top: 0;
+}
+
+.contact-card a {
+  color: #1f4fd6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-card a:hover,
+.contact-card a:focus-visible {
+  text-decoration: underline;
+}
+
+.footer {
+  padding: 2rem clamp(1.5rem, 6vw, 7rem);
+  color: #58647d;
+  font-size: 0.95rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 720px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  to {
-    transform: rotate(360deg);
+
+  .feature-card,
+  .contact-card,
+  .roadmap-callout {
+    padding: 1.5rem;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
