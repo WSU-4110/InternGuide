@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const featureHighlights = [
@@ -33,7 +34,32 @@ const trustSignals = [
   'Reliable availability so support is ready when you are.',
 ]
 
+type PreviewPayload = {
+  headline: string
+  blurb: string
+  timestamp: string
+}
+
 function App() {
+  const [preview, setPreview] = useState<PreviewPayload | null>(null)
+  const [previewError, setPreviewError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const apiBase = import.meta.env.VITE_API_BASE ?? 'http://localhost:3000/api'
+
+    fetch(`${apiBase}/preview`)
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`)
+        }
+        return (await response.json()) as PreviewPayload
+      })
+      .then(setPreview)
+      .catch((error: unknown) => {
+        setPreviewError(error instanceof Error ? error.message : 'Unable to reach backend')
+      })
+  }, [])
+
   return (
     <div className="layout">
       <header className="hero">
@@ -103,6 +129,25 @@ function App() {
               Drop a note at <a href="mailto:team@internguide.com">team@internguide.com</a> and we&apos;ll respond
               within one business day.
             </p>
+            {/* Display the backend preview status, prioritizing live data, then errors, then loading */}
+            <div className="preview-status" aria-live="polite">
+              {preview ? (
+                // Render the payload received from the backend
+                <>
+                  <p className="preview-status__headline">{preview.headline}</p>
+                  <p className="preview-status__blurb">{preview.blurb}</p>
+                  <p className="preview-status__timestamp">
+                    Synced at {new Date(preview.timestamp).toLocaleTimeString()}
+                  </p>
+                </>
+              ) : previewError ? (
+                // Surface any fetch or network error so the user knows the connection failed
+                <p className="preview-status__error">Backend preview unavailable: {previewError}</p>
+              ) : (
+                // Initial state while waiting for the preview fetch to resolve
+                <p className="preview-status__loading">Checking backend connection…</p>
+              )}
+            </div>
           </div>
         </section>
       </main>
