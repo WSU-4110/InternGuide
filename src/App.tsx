@@ -41,6 +41,15 @@ type PreviewPayload = {
 }
 
 function App() {
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('theme') as 'light' | 'dark' | null
+    if (saved) return saved
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+  }, [theme])
   const [preview, setPreview] = useState<PreviewPayload | null>(null)
   const [previewError, setPreviewError] = useState<string | null>(null)
 
@@ -64,6 +73,14 @@ function App() {
     <div className="layout">
       <header className="hero">
         <div className="hero__body">
+          <button
+            className="theme-toggle"
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            aria-label="Toggle dark mode"
+            title="Toggle dark mode"
+          >
+            {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+          </button>
           <span className="hero__tag">Welcome to InternGuide</span>
           <h1>Prep smarter for internships with one guided hub.</h1>
           <p>

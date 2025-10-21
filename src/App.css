@@ -1,14 +1,14 @@
 .layout {
   min-height: 100vh;
-  background: #f7f9fc;
-  color: #1b2738;
+  background: var(--bg);
+  color: var(--text);
   display: flex;
   flex-direction: column;
 }
 
 .hero {
-  background: #1f4fd6;
-  color: #ffffff;
+  background: var(--hero-bg);
+  color: var(--hero-text);
   padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 6vw, 7rem);
 }
 
@@ -35,7 +35,7 @@
   margin: 0;
   font-size: 1.05rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--hero-text-soft);
 }
 
 .hero__actions {
@@ -53,19 +53,19 @@
   border-radius: 999px;
   text-decoration: none;
   border: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
   cursor: pointer;
 }
 
 .button--primary {
-  background: #ffffff;
-  color: #1f4fd6;
-  box-shadow: 0 10px 24px rgba(9, 25, 60, 0.18);
+  background: var(--button-primary-bg);
+  color: var(--button-primary-fg);
+  box-shadow: var(--shadow-1);
 }
 
 .button--secondary {
-  background: #ffb347;
-  color: #1b2738;
+  background: var(--button-secondary-bg);
+  color: var(--button-secondary-fg);
   box-shadow: 0 12px 26px rgba(255, 179, 71, 0.32);
 }
 
@@ -74,7 +74,7 @@
 .button--secondary:hover,
 .button--secondary:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(9, 25, 60, 0.2);
+  box-shadow: var(--shadow-1-hover);
 }
 
 .main-content {
@@ -96,7 +96,7 @@
 
 .section__intro {
   margin: 0;
-  color: #4a556d;
+  color: var(--muted-text);
   max-width: 36rem;
   line-height: 1.6;
 }
@@ -108,10 +108,10 @@
 }
 
 .feature-card {
-  background: #ffffff;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 1.75rem;
-  box-shadow: 0 12px 28px rgba(18, 33, 60, 0.08);
+  box-shadow: var(--shadow-2);
   display: grid;
   gap: 0.75rem;
 }
@@ -126,21 +126,21 @@
   padding-left: 1.2rem;
   display: grid;
   gap: 0.6rem;
-  color: #4a556d;
+  color: var(--muted-text);
   line-height: 1.5;
 }
 
 .section--muted {
-  background: #eef3ff;
+  background: var(--muted-section-bg);
   border-radius: 20px;
   padding: clamp(2rem, 5vw, 3rem);
 }
 
 .roadmap-callout {
-  background: #ffffff;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 1.75rem;
-  box-shadow: 0 8px 20px rgba(17, 40, 105, 0.08);
+  box-shadow: var(--shadow-3);
   display: grid;
   gap: 0.75rem;
   color: #31405b;
@@ -156,20 +156,19 @@
 }
 
 .contact-card {
-  background: #ffffff;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 1.75rem;
+  box-shadow: var(--shadow-2);
   box-shadow: 0 10px 24px rgba(18, 33, 60, 0.08);
   display: grid;
   gap: 1rem;
 }
 
-.contact-card h3 {
-  margin-top: 0;
-}
+.contact-card h3 { margin-top: 0; }
 
 .contact-card a {
-  color: #1f4fd6;
+  color: var(--link);
   font-weight: 600;
   text-decoration: none;
 }
@@ -207,9 +206,21 @@
 
 .footer {
   padding: 2rem clamp(1.5rem, 6vw, 7rem);
-  color: #58647d;
+  color: var(--footer-text);
   font-size: 0.95rem;
   text-align: center;
+}
+
+.theme-toggle {
+  margin-left: auto;
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  background: transparent;
+  color: inherit;
+  border: 1px solid rgba(255,255,255,0.35);
+}
+html[data-theme='dark'] .theme-toggle {
+  border-color: rgba(255,255,255,0.25);
 }
 
 @media (max-width: 720px) {
