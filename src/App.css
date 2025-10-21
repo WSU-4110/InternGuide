@@ -160,6 +160,9 @@
   border-radius: 16px;
   padding: 1.75rem;
   box-shadow: var(--shadow-2);
+  box-shadow: 0 10px 24px rgba(18, 33, 60, 0.08);
+  display: grid;
+  gap: 1rem;
 }
 
 .contact-card h3 { margin-top: 0; }
@@ -173,6 +176,32 @@
 .contact-card a:hover,
 .contact-card a:focus-visible {
   text-decoration: underline;
+}
+
+.preview-status {
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  background: #f1f5ff;
+  color: #253354;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.preview-status__headline {
+  margin: 0;
+  font-weight: 600;
+}
+
+.preview-status__blurb,
+.preview-status__timestamp,
+.preview-status__loading,
+.preview-status__error {
+  margin: 0;
+}
+
+.preview-status__error {
+  color: #a63b11;
 }
 
 .footer {
