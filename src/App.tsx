@@ -1,117 +1,60 @@
-import './App.css'
+import { Link, Routes, Route } from "react-router-dom";
 
-const featureHighlights = [
-  {
-    title: 'Kickoff basics',
-    items: [
-      'Quick login and registration flow tailored to students.',
-      'Friendly dashboard greeting with AI guidance.',
-      'Secure resume upload ready for AI analysis.',
-    ],
-  },
-  {
-    title: 'AI-powered planning',
-    items: [
-      'Automated resume scanning with actionable feedback.',
-      'Follow-up questions to capture goals beyond the resume.',
-      'Personalized mindmap you can view and refine.',
-    ],
-  },
-  {
-    title: 'Stay on track',
-    items: [
-      'Progress tracker for applications, interviews, and offers.',
-      'Resource hub, FAQ, and dedicated contact support.',
-      'Job application tracker and AI chatbot workspace.',
-    ],
-  },
-]
+// Only the pages we’re using right now
+import Overview from "./pages/Overview.tsx";
+import Mindmap from "./pages/Mindmap.tsx"; // ← note the capital M
+import Login from "./pages/Login.tsx";
 
-const trustSignals = [
-  'Performance-first experience, optimized for quick responses.',
-  'Privacy and security by design for every document you share.',
-  'Reliable availability so support is ready when you are.',
-]
+// Footer (remove if you don’t have it)
+import Footer from "./components/Footer.tsx";
 
-function App() {
+function Navbar() {
   return (
-    <div className="layout">
-      <header className="hero">
-        <div className="hero__body">
-          <span className="hero__tag">Welcome to InternGuide</span>
-          <h1>Prep smarter for internships with one guided hub.</h1>
-          <p>
-            InternGuide brings together resume intelligence, planning tools, and supportive resources so
-            students can navigate recruiting with clarity.
-          </p>
-          <div className="hero__actions">
-            <a className="button button--primary" href="#features">
-              See what&apos;s coming
-            </a>
-            <a className="button button--secondary" href="#contact">
-              Get in touch
-            </a>
-          </div>
-        </div>
-      </header>
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <Link to="/" className="text-2xl font-extrabold text-pink-600 tracking-tight">
+          Intern Guide
+        </Link>
 
-      <main className="main-content">
-        <section id="features" className="section">
-          <h2>Focused features for students</h2>
-          <p className="section__intro">
-            We&apos;re building InternGuide step by step. Here&apos;s the core experience taking shape for launch.
-          </p>
-          <div className="feature-grid">
-            {featureHighlights.map((group) => (
-              <article key={group.title} className="feature-card">
-                <h3>{group.title}</h3>
-                <ul>
-                  {group.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
+        <nav className="hidden md:flex items-center gap-6">
+          {/* Clickable routes we actually have */}
+          <Link to="/overview" className="text-sm text-slate-700 hover:text-pink-500">Overview</Link>
+          <Link to="/mindmap" className="text-sm text-slate-700 hover:text-pink-500">Mindmap</Link>
+          <Link to="/login" className="text-sm text-slate-700 hover:text-pink-500">Login</Link>
 
-        <section id="roadmap" className="section section--muted">
-          <h2>What to expect next</h2>
-          <p className="section__intro">
-            Upcoming milestones include the overview hub, light/dark mode, and tighter integration across the
-            AI chatbot, resources, and FAQ experience.
-          </p>
-          <div className="roadmap-callout">
-            <h3>Guided experience</h3>
-            <p>
-              The home experience keeps things simple: start by uploading a resume, let InternGuide learn more
-              about you, and receive a personalized mindmap plus progress tracking overview.
-            </p>
-          </div>
-        </section>
-
-        <section id="contact" className="section">
-          <h2>Built with trust at the center</h2>
-          <ul className="trust-list">
-            {trustSignals.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <div className="contact-card">
-            <h3>Need to reach us?</h3>
-            <p>
-              Drop a note at <a href="mailto:team@internguide.com">team@internguide.com</a> and we&apos;ll respond
-              within one business day.
-            </p>
-          </div>
-        </section>
-      </main>
-
-      <footer className="footer">
-        <p>© {new Date().getFullYear()} InternGuide. Made for students chasing their next internship.</p>
-      </footer>
-    </div>
-  )
+          {/* Visual placeholders only (not clickable) */}
+          <span className="text-sm text-slate-400">Resources</span>
+          <span className="text-sm text-slate-400">Progress</span>
+          <span className="text-sm text-slate-400">Applications</span>
+        </nav>
+      </div>
+    </header>
+  );
 }
 
-export default App
+function AppShell({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      {/* Home = Overview */}
+      <Route path="/" element={<AppShell><Overview /></AppShell>} />
+
+      {/* Real pages */}
+      <Route path="/overview" element={<AppShell><Overview /></AppShell>} />
+      <Route path="/mindmap" element={<AppShell><Mindmap /></AppShell>} />
+      <Route path="/login" element={<AppShell><Login /></AppShell>} />
+
+      {/* Fallback → send unknown paths home */}
+      <Route path="*" element={<AppShell><Overview /></AppShell>} />
+    </Routes>
+  );
+}
