@@ -1,0 +1,156 @@
+.resource-detail-page {
+  min-height: 100vh;
+  background: #f9fafb;
+  padding: 40px 24px;
+}
+
+.resource-detail-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  margin-bottom: 32px;
+  font-size: 15px;
+  color: #374151;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.back-button:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.resource-detail-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.resource-detail-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.resource-detail-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.resource-detail-description {
+  font-size: 18px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.resource-detail-content {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 48px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.content-section {
+  margin-bottom: 40px;
+}
+
+.content-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 16px 0;
+}
+
+.section-text {
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.8;
+  margin: 0 0 16px 0;
+}
+
+.section-list {
+  margin: 0 0 16px 0;
+  padding-left: 24px;
+}
+
+.section-list li {
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.section-list li strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.tip-box {
+  background: #f0f9ff;
+  border-left: 4px solid #3b82f6;
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: 8px;
+}
+
+.tip-box-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e40af;
+  margin: 0 0 8px 0;
+}
+
+.tip-box-text {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .resource-detail-page {
+    padding: 24px 16px;
+  }
+
+  .resource-detail-icon {
+    font-size: 48px;
+  }
+
+  .resource-detail-title {
+    font-size: 32px;
+  }
+
+  .resource-detail-description {
+    font-size: 16px;
+  }
+
+  .resource-detail-content {
+    padding: 32px 24px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .section-text,
+  .section-list li {
+    font-size: 15px;
+  }
+}
