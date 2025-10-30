@@ -1,0 +1,74 @@
+.resource-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  cursor: pointer;
+}
+
+.resource-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+}
+
+.resource-card-content {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.resource-icon {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+.resource-text {
+  flex: 1;
+}
+
+.resource-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.resource-description {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .resource-card {
+    padding: 20px;
+  }
+
+  .resource-icon {
+    font-size: 28px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .resource-title {
+    font-size: 16px;
+  }
+
+  .resource-description {
+    font-size: 13px;
+  }
+}
