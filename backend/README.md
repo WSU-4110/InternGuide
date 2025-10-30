@@ -37,3 +37,22 @@ This service provides the API layer for InternGuide using NestJS and TypeScript.
 - Wire up persistence (SQL/NoSQL) and configure the required environment variables.
 - Integrate AI providers or internal services for resume analysis and mindmap generation.
 - Harden the app for production with validation, logging, security headers, and observability.
+
+## Supabase setup
+
+To initialize Supabase for the backend:
+
+1. Create a `.env` file in the `backend/` folder (copy from `.env.example`) and set:
+
+```
+SUPABASE_URL=https://<your-project-ref>.supabase.co
+SUPABASE_KEY=<your-service-or-anon-key>
+```
+
+2. Install the new dependency and start the backend:
+
+```bash
+cd backend
+npm install
+npm run start:dev
+```
