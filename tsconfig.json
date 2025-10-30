@@ -1,5 +1,6 @@
 {
   "files": [],
+<<<<<<< HEAD
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
   "compilerOptions": {
     "baseUrl": ".",
@@ -13,4 +14,10 @@
     "noUnusedLocals": false,
     "strictNullChecks": false
   }
+=======
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+>>>>>>> origin/main
 }

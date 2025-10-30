@@ -1,0 +1,237 @@
+.layout {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 6vw, 7rem);
+}
+
+.hero__body {
+  max-width: 48rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero__tag {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.1;
+}
+
+.hero p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--hero-text-soft);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.button--primary {
+  background: var(--button-primary-bg);
+  color: var(--button-primary-fg);
+  box-shadow: var(--shadow-1);
+}
+
+.button--secondary {
+  background: var(--button-secondary-bg);
+  color: var(--button-secondary-fg);
+  box-shadow: 0 12px 26px rgba(255, 179, 71, 0.32);
+}
+
+.button--primary:hover,
+.button--primary:focus-visible,
+.button--secondary:hover,
+.button--secondary:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-1-hover);
+}
+
+.main-content {
+  flex: 1;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 7rem) clamp(4rem, 7vw, 6rem);
+  display: grid;
+  gap: clamp(3rem, 7vw, 5rem);
+}
+
+.section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.section__intro {
+  margin: 0;
+  color: var(--muted-text);
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.feature-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-2);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.feature-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.feature-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+  color: var(--muted-text);
+  line-height: 1.5;
+}
+
+.section--muted {
+  background: var(--muted-section-bg);
+  border-radius: 20px;
+  padding: clamp(2rem, 5vw, 3rem);
+}
+
+.roadmap-callout {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-3);
+  display: grid;
+  gap: 0.75rem;
+  color: #31405b;
+}
+
+.trust-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+  color: #42506c;
+  line-height: 1.6;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-2);
+  box-shadow: 0 10px 24px rgba(18, 33, 60, 0.08);
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-card h3 { margin-top: 0; }
+
+.contact-card a {
+  color: var(--link);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-card a:hover,
+.contact-card a:focus-visible {
+  text-decoration: underline;
+}
+
+.preview-status {
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  background: #f1f5ff;
+  color: #253354;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.preview-status__headline {
+  margin: 0;
+  font-weight: 600;
+}
+
+.preview-status__blurb,
+.preview-status__timestamp,
+.preview-status__loading,
+.preview-status__error {
+  margin: 0;
+}
+
+.preview-status__error {
+  color: #a63b11;
+}
+
+.footer {
+  padding: 2rem clamp(1.5rem, 6vw, 7rem);
+  color: var(--footer-text);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.theme-toggle {
+  margin-left: auto;
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  background: transparent;
+  color: inherit;
+  border: 1px solid rgba(255,255,255,0.35);
+}
+html[data-theme='dark'] .theme-toggle {
+  border-color: rgba(255,255,255,0.25);
+}
+
+@media (max-width: 720px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-card,
+  .contact-card,
+  .roadmap-callout {
+    padding: 1.5rem;
+  }
+}
