@@ -64,7 +64,7 @@ function Resume() {
       <header className="hero">
         <div className="hero__body">
           <span className="hero__tag">Resume intelligence</span>
-          <h1>Polish your resume with recruiter-trained guidance.</h1>
+          <h1>Polish your resume with AI powered guidance.</h1>
           <p>
             Upload your draft, let InternGuide uncover gaps, and walk away with a concise, metrics-driven resume
             that speaks to internship hiring managers.
