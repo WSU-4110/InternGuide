@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ResumeUpload from './components/ResumeUpload'
 import './App.css'
 
 const featureHighlights = [
@@ -146,6 +147,9 @@ function App() {
               Drop a note at <a href="mailto:team@internguide.com">team@internguide.com</a> and we&apos;ll respond
               within one business day.
             </p>
+            <div style={{ marginTop: 12 }}>
+              <ResumeUpload />
+            </div>
             {/* Display the backend preview status, prioritizing live data, then errors, then loading */}
             <div className="preview-status" aria-live="polite">
               {preview ? (
