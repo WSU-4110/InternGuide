@@ -7,7 +7,9 @@ import './App.css'
 
 const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
   isActive ? 'site-nav__link site-nav__link--active' : 'site-nav__link'
-
+// yooo
+let name = "yoooo"
+console.log(name); 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const saved = localStorage.getItem('theme') as 'light' | 'dark' | null
@@ -54,7 +56,9 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/mind-map" element={<MindMapPage />} />
               <Route path="/resume" element={<Resume />} />
+              <Route path="/resume2" element={<Resume />} />
             </Routes>
+
           </div>
         </main>
 
