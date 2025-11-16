@@ -3,6 +3,8 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import MindMapPage from './pages/MindMapPage'
 import Resume from './pages/Resume'
+import FAQPage from './pages/FAQPage'
+import JobTrackerPage from './pages/JobTrackerPage'
 import './App.css'
 
 const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
@@ -37,6 +39,12 @@ function App() {
             <NavLink to="/resume" className={navLinkClasses}>
               Resume
             </NavLink>
+            <NavLink to="/job-tracker" className={navLinkClasses}>
+              Job Tracker
+            </NavLink>
+            <NavLink to="/faq" className={navLinkClasses}>
+              FAQ
+            </NavLink>
           </nav>
           <button
             className="theme-toggle"
@@ -54,6 +62,8 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/mind-map" element={<MindMapPage />} />
               <Route path="/resume" element={<Resume />} />
+              <Route path="/job-tracker" element={<JobTrackerPage />} />
+              <Route path="/faq" element={<FAQPage />} />
             </Routes>
           </div>
         </main>

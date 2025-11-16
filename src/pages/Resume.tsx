@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const featureHighlights = [
   {
@@ -42,6 +42,9 @@ type PreviewPayload = {
 function Resume() {
   const [preview, setPreview] = useState<PreviewPayload | null>(null)
   const [previewError, setPreviewError] = useState<string | null>(null)
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null)
+  const [uploadStatus, setUploadStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     const apiBase = import.meta.env.VITE_API_BASE ?? 'http://localhost:3000/api'
@@ -59,6 +62,41 @@ function Resume() {
       })
   }, [])
 
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword']
+    const maxSize = 10 * 1024 * 1024 // 10MB
+
+    if (!validTypes.includes(file.type)) {
+      setUploadStatus('error')
+      alert('Please upload a PDF or DOCX file')
+      return
+    }
+
+    if (file.size > maxSize) {
+      setUploadStatus('error')
+      alert('File size must be less than 10MB')
+      return
+    }
+
+    setUploadedFile(file)
+    setUploadStatus('success')
+  }
+
+  const handleUploadClick = () => {
+    fileInputRef.current?.click()
+  }
+
+  const handleRemoveFile = () => {
+    setUploadedFile(null)
+    setUploadStatus('idle')
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+  }
+
   return (
     <div className="resume-page home-page">
       <header className="hero">
@@ -70,13 +108,52 @@ function Resume() {
             that speaks to internship hiring managers.
           </p>
           <div className="hero__actions">
-            <a className="button button--primary" href="#resume-features">
+            <button className="button button--primary" onClick={handleUploadClick}>
               Upload new resume
-            </a>
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".pdf,.doc,.docx"
+              onChange={handleFileUpload}
+              style={{ display: 'none' }}
+            />
             <a className="button button--secondary" href="#resume-contact">
               View Feedback on your resume
             </a>
           </div>
+          {uploadedFile && (
+            <div className="upload-status" style={{
+              marginTop: '1.5rem',
+              padding: '1rem',
+              backgroundColor: uploadStatus === 'success' ? '#d4edda' : '#f8d7da',
+              border: `1px solid ${uploadStatus === 'success' ? '#c3e6cb' : '#f5c6cb'}`,
+              borderRadius: '0.375rem',
+              color: uploadStatus === 'success' ? '#155724' : '#721c24'
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <strong>✓ File uploaded:</strong> {uploadedFile.name}
+                  <div style={{ fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                    Size: {(uploadedFile.size / 1024).toFixed(2)} KB
+                  </div>
+                </div>
+                <button
+                  onClick={handleRemoveFile}
+                  style={{
+                    padding: '0.5rem 1rem',
+                    backgroundColor: 'transparent',
+                    border: '1px solid currentColor',
+                    borderRadius: '0.25rem',
+                    cursor: 'pointer',
+                    fontSize: '0.875rem'
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
