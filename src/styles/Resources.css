@@ -1,0 +1,134 @@
+.resources-page {
+  min-height: 100vh;
+  background: #f9fafb;
+  padding: 40px 24px;
+}
+
+.resources-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.resources-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.resources-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+}
+
+.search-container {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 16px 20px 16px 52px;
+  font-size: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #111827;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.resources-content {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.resources-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 24px;
+  color: #6b7280;
+}
+
+.no-results-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+.no-results-text {
+  font-size: 16px;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .resources-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .resources-page {
+    padding: 24px 16px;
+  }
+
+  .resources-header {
+    margin-bottom: 32px;
+  }
+
+  .resources-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .search-input {
+    padding: 14px 18px 14px 48px;
+    font-size: 15px;
+  }
+
+  .resources-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .resources-title {
+    font-size: 28px;
+  }
+}
