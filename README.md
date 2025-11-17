@@ -1,72 +1,115 @@
 # InternGuide
 
-## Install dependencies
+**Your intelligent companion for landing the perfect internship**
 
-Clone repo and run:
+---
 
-```
-npm install
-cd backend
-npm install
-cd ..
-```
+## 🎯 What is InternGuide?
 
-You only need to run the second `npm install` if you plan to build/run the backend locally.
+InternGuide is a comprehensive platform designed to help students navigate the overwhelming internship search process with confidence and clarity. We combine AI-powered tools with practical guidance to transform your internship hunt from stressful to strategic.
 
-## Development: run frontend and backend
+## 💡 The Problem We Solve
 
-Run the frontend development server (Vite + React):
+Landing an internship shouldn't feel like a full-time job. Students face:
 
-```
-npm run dev
-```
+- **Resume anxiety**: "Is my resume good enough? What am I missing?"
+- **Application overload**: Tracking dozens of applications across multiple platforms
+- **Planning paralysis**: Not knowing where to start or what steps to take next
+- **Lack of personalized guidance**: Generic advice that doesn't fit your unique situation
+- **Scattered resources**: Information spread across countless websites and forums
 
-This starts Vite's dev server (default port 5173). Open the address shown in the console (usually http://localhost:5173).
+InternGuide brings everything together in one place, with intelligent tools that adapt to your specific goals and experience.
 
-Run the backend in watch/dev mode (from repository root):
+## ✨ What InternGuide Does
 
-```
-cd backend
-npm run start:dev
-```
+### 🤖 AI-Powered Resume Intelligence
 
-This starts the NestJS server in watch mode (default port 3000). The backend will pick up changes automatically.
+Upload your resume and receive instant, actionable feedback:
+- Spot gaps and incomplete sections
+- Get specific suggestions to strengthen your impact statements
+- Receive ATS (Applicant Tracking System) readiness checks
+- Compare different versions side-by-side
+- Generate polished, professional exports
 
-You can run both concurrently in separate terminals.
+### 🗺️ Personalized Career Mindmaps
 
+Answer a few questions about your goals, and InternGuide creates a visual roadmap tailored to you:
+- Identify skills you need to develop
+- Discover relevant companies and roles
+- Map out your timeline from application to offer
+- Track your progress through each milestone
+- Adjust your plan as opportunities evolve
 
-## Environment variables (Supabase)
+### 📊 Smart Application Tracker
 
-The backend uses Supabase. Create a `.env` file in `backend/` and include the required keys:
+Never lose track of where you applied:
+- Log applications with company, role, and status
+- Track your journey from "Applied" → "Interviewing" → "Offer"
+- Store compensation details and job descriptions
+- Get a clear overview of your entire pipeline
+- Stay organized without the spreadsheet headaches
 
-- `SUPABASE_URL` — your Supabase project URL
-- `SUPABASE_KEY` — your service or anon key (use the appropriate key for server vs client usage)
+### 💬 AI Chat Assistant
 
-```
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_KEY=...
-```
+Get instant answers to your internship questions:
+- Interview preparation tips
+- Company research insights
+- Career advice tailored to your profile
+- Technical and behavioral question practice
+- Real-time support when you need it most
 
-Check `backend/README.md` for any backend-specific notes.
+### 📚 Curated Resources & FAQ
 
-## Useful commands
+Access a growing library of:
+- Industry-specific internship guides
+- Resume templates and examples
+- Interview preparation materials
+- Networking strategies
+- Common questions answered by experts
 
-```
-# Install deps
-npm install
-cd backend && npm install && cd ..
+## 🌟 Who Is This For?
 
-# Dev servers (run in two terminals)
-npm run dev         # frontend
-cd backend && npm run start:dev
+InternGuide is built for:
+- **College students** actively searching for internships
+- **Career switchers** looking to break into new industries
+- **Recent graduates** seeking their first professional experience
+- **Advisors and mentors** supporting students through the process
 
-# Build
-npm run build       # frontend build (root)
-cd backend && npm run build
+## 🚀 How It Works
 
-# Preview frontend
-npm run preview
+1. **Sign up** with a simple student-friendly registration
+2. **Upload your resume** for instant AI analysis
+3. **Answer a few questions** about your goals and interests
+4. **Receive your personalized mindmap** showing your path forward
+5. **Track applications** as you apply to opportunities
+6. **Get ongoing support** through AI chat and resources
 
-# Tests (backend)
-cd backend && npm run test
-```
+## 🔒 Privacy & Security
+
+Your information is safe with us:
+- Secure storage for all documents and data
+- Privacy-first design - your data is yours alone
+- No sharing of personal information with third parties
+- Industry-standard encryption and security practices
+
+## 🎓 Built by Students, for Students
+
+InternGuide was created by people who understand the internship search struggle firsthand. We're committed to making the process more transparent, less stressful, and ultimately more successful.
+
+## 📧 Get in Touch
+
+Have questions? Want early access? Need support?
+
+**Email us**: [team@internguide.com](mailto:team@internguide.com)
+
+We respond within one business day and love hearing from our users.
+
+---
+
+## 🛠️ For Developers
+
+If you're looking to contribute or run InternGuide locally, check out our [DEVELOPMENT.md](./DEVELOPMENT.md) guide for technical setup instructions.
+
+---
+
+**InternGuide** - Navigate your internship journey with confidence.
