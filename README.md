@@ -96,14 +96,6 @@ Your information is safe with us:
 
 InternGuide was created by people who understand the internship search struggle firsthand. We're committed to making the process more transparent, less stressful, and ultimately more successful.
 
-## 📧 Get in Touch
-
-Have questions? Want early access? Need support?
-
-**Email us**: [team@internguide.com](mailto:team@internguide.com)
-
-We respond within one business day and love hearing from our users.
-
 ---
 
 ## 🛠️ For Developers
