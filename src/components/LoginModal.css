@@ -1,0 +1,91 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 10000;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  width: min(760px, 92vw);
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--surface, #ffffff);
+  color: var(--text, #111827);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.6);
+  z-index: 10001;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: var(--input-bg, #fff);
+  color: inherit;
+}
+
+.form-error {
+  color: #b00020;
+  margin-bottom: 0.5rem;
+}
+
+.modal-footer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Dark theme overrides */
+html[data-theme='dark'] .modal-overlay {
+  background: rgba(2, 6, 23, 0.75);
+}
+
+html[data-theme='dark'] .modal {
+  background: var(--surface-dark, #071024);
+  color: var(--surface-text, #e6eef8);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+}
+
+html[data-theme='dark'] .modal-close {
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.8);
+}
+
+html[data-theme='dark'] .login-form input[type="email"],
+html[data-theme='dark'] .login-form input[type="password"] {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #e6eef8;
+}
+
+html[data-theme='dark'] .login-form input::placeholder {
+  color: rgba(230,238,248,0.6);
+}
+
+html[data-theme='dark'] .form-error {
+  color: #ffb4b4;
+}
+

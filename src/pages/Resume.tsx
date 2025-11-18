@@ -1,4 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { supabase } from '../lib/supabaseClient'
+import { useAuth } from '../contexts/AuthContext'
 
 const featureHighlights = [
   {
@@ -45,6 +48,9 @@ function Resume() {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
   const [uploadStatus, setUploadStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const { user } = useAuth()
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const apiBase = import.meta.env.VITE_API_BASE ?? 'http://localhost:3000/api'
@@ -66,6 +72,11 @@ function Resume() {
     const file = event.target.files?.[0]
     if (!file) return
 
+    if (!user) {
+      alert('Please sign in to upload a resume. Use the Login button in the header.')
+      return
+    }
+
     const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword']
     const maxSize = 10 * 1024 * 1024 // 10MB
 
@@ -85,7 +96,60 @@ function Resume() {
     setUploadStatus('success')
   }
 
+  // Upload the selected file to Supabase Storage and link to user's profile
+  useEffect(() => {
+    if (!uploadedFile || uploadStatus !== 'success' || !user) return
+
+    const uploadResume = async () => {
+      try {
+        setUploadStatus('idle')
+        const path = `resumes/${user.id}/${Date.now()}_${uploadedFile.name}`
+
+        const { error: uploadError } = await supabase.storage
+          .from('resumes')
+          .upload(path, uploadedFile, { upsert: true })
+
+        if (uploadError) {
+          console.error('Upload error', uploadError)
+          setUploadStatus('error')
+          return
+        }
+
+        // Get a signed URL valid for 1 hour
+        const { error: urlError } = await supabase.storage
+          .from('resumes')
+          .createSignedUrl(path, 60 * 60)
+
+        if (urlError) {
+          console.error('Signed url error', urlError)
+        }
+
+        // Save resume path (or URL) to profiles table
+        const { error: upsertError } = await supabase
+          .from('profiles')
+          .upsert({ id: user.id, resume_path: path })
+
+        if (upsertError) {
+          console.error('Failed to save profile resume path', upsertError)
+        }
+
+        setUploadStatus('success')
+      } catch (err) {
+        console.error(err)
+        setUploadStatus('error')
+      }
+    }
+
+    uploadResume()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uploadedFile, uploadStatus, user])
+
   const handleUploadClick = () => {
+    if (!user) {
+      // redirect to login page and return to resume after auth
+      navigate('/login', { state: { from: location.pathname } })
+      return
+    }
     fileInputRef.current?.click()
   }
 

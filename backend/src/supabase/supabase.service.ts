@@ -11,9 +11,14 @@ export class SupabaseService implements OnModuleInit {
 
   onModuleInit() {
     const url = process.env.SUPABASE_URL
-    const key = process.env.SUPABASE_KEY
+    // Support both SUPABASE_KEY and SUPABASE_SERVICE_ROLE_KEY for flexibility
+    const key = process.env.SUPABASE_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY
     if (!url || !key) {
-      throw new Error('Missing SUPABASE_URL or SUPABASE_KEY in environment')
+      throw new Error('Missing SUPABASE_URL or SUPABASE_KEY / SUPABASE_SERVICE_ROLE_KEY in environment')
+    }
+    if (process.env.SUPABASE_SERVICE_ROLE_KEY && !process.env.SUPABASE_KEY) {
+      // eslint-disable-next-line no-console
+      console.warn('Using SUPABASE_SERVICE_ROLE_KEY as SUPABASE key — ensure this secret is kept server-side only')
     }
     this.client = createClient(url, key)
   }
