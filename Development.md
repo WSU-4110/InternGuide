@@ -35,16 +35,29 @@ This starts the NestJS server in watch mode (default port 3000). The backend wil
 You can run both concurrently in separate terminals.
 
 
-## Environment variables (Supabase)
+## Environment variables
 
-The backend uses Supabase. Create a `.env` file in `backend/` and include the required keys:
+The backend requires several environment variables. Create a `.env` file in `backend/` and include the required keys:
+
+### Required Variables
 
 - `SUPABASE_URL` — your Supabase project URL
 - `SUPABASE_KEY` — your service or anon key (use the appropriate key for server vs client usage)
+- `OPENAI_API_KEY` — your OpenAI API key for AI-powered features (mindmap generation, resume feedback, chat)
 
-```
+### Optional Variables
+
+- `OPENAI_MODEL` — OpenAI model to use (default: `gpt-4o-mini`)
+- `SUPABASE_RESUME_BUCKET` — Supabase storage bucket name for resumes (default: `resumes`)
+- `SUPABASE_RESUME_TABLE` — Database table name for resume metadata (default: `UserResumes`)
+
+### Example `.env` file
+
+```bash
 SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_KEY=...
+SUPABASE_KEY=your-supabase-key
+OPENAI_API_KEY=sk-your-openai-api-key
+OPENAI_MODEL=gpt-4o-mini
 ```
 
 Check `backend/README.md` for any backend-specific notes.
