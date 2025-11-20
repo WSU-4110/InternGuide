@@ -1,18 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import '../../styles/ResourceDetail.css';
 
 const VirtualInternship = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="resource-detail-page">
       <div className="resource-detail-container">
-        <button className="back-button" onClick={() => navigate('/resources')}>
-          ← Back to Resources
-        </button>
-
         <div className="resource-detail-header">
-          <div className="resource-detail-icon">💻</div>
           <h1 className="resource-detail-title">Virtual Internship Success</h1>
           <p className="resource-detail-description">
             Best practices for excelling in remote internship positions
@@ -43,7 +35,7 @@ const VirtualInternship = () => {
           </div>
 
           <div className="tip-box">
-            <h3 className="tip-box-title">💡 Pro Tip</h3>
+            <h3 className="tip-box-title">Pro Tip</h3>
             <p className="tip-box-text">
               Schedule regular virtual coffee chats with teammates. Building relationships remotely requires extra effort, but these informal connections are crucial for a successful internship experience.
             </p>

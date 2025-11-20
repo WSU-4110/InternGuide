@@ -1,18 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import '../../styles/ResourceDetail.css';
 
 const InformationalInterviews = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="resource-detail-page">
       <div className="resource-detail-container">
-        <button className="back-button" onClick={() => navigate('/resources')}>
-          ← Back to Resources
-        </button>
-
         <div className="resource-detail-header">
-          <div className="resource-detail-icon">☕</div>
           <h1 className="resource-detail-title">Informational Interviews</h1>
           <p className="resource-detail-description">
             Master informational interviews to learn about companies and opportunities
@@ -46,7 +38,7 @@ const InformationalInterviews = () => {
           </div>
 
           <div className="tip-box">
-            <h3 className="tip-box-title">💡 Pro Tip</h3>
+            <h3 className="tip-box-title">Pro Tip</h3>
             <p className="tip-box-text">
               Always emphasize that you're seeking advice, not asking for a job. This removes pressure and makes people more willing to help.
             </p>

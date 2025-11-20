@@ -1,80 +1,92 @@
 .resource-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 24px;
-  transition: all 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 0.875rem;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-2);
   height: 100%;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.resource-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--hero-bg), var(--accent));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.resource-card:hover::before {
+  opacity: 1;
 }
 
 .resource-card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
-  border-color: #3b82f6;
+  border-color: var(--hero-bg);
 }
 
 .resource-card-content {
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.resource-icon {
-  font-size: 32px;
-  line-height: 1;
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f3f4f6;
-  border-radius: 10px;
-  color: #374151;
-}
-
-.resource-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-.resource-text {
-  flex: 1;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .resource-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #111827;
-  margin: 0 0 8px 0;
-  line-height: 1.4;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
 }
 
 .resource-description {
-  font-size: 14px;
-  color: #6b7280;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  color: var(--muted-text);
+  line-height: 1.5;
   margin: 0;
+}
+
+.resource-meta {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resource-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 768px) {
   .resource-card {
-    padding: 20px;
-  }
-
-  .resource-icon {
-    font-size: 28px;
-    width: 44px;
-    height: 44px;
+    padding: 1.25rem;
   }
 
   .resource-title {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .resource-description {
-    font-size: 13px;
+    font-size: 0.8125rem;
+  }
+
+  .resource-badge {
+    font-size: 0.6875rem;
   }
 }

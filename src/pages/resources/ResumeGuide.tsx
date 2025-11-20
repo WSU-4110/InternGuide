@@ -1,18 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import '../../styles/ResourceDetail.css';
 
 const ResumeGuide = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="resource-detail-page">
       <div className="resource-detail-container">
-        <button className="back-button" onClick={() => navigate('/resources')}>
-          ← Back to Resources
-        </button>
-
         <div className="resource-detail-header">
-          <div className="resource-detail-icon">📝</div>
           <h1 className="resource-detail-title">Internship Resume Guide</h1>
           <p className="resource-detail-description">
             Craft a compelling internship resume that highlights your skills and projects
@@ -60,7 +52,7 @@ const ResumeGuide = () => {
           </div>
 
           <div className="tip-box">
-            <h3 className="tip-box-title">💡 Pro Tip</h3>
+            <h3 className="tip-box-title">Pro Tip</h3>
             <p className="tip-box-text">
               Customize your resume for each application by incorporating keywords from the job description. Many companies use Applicant Tracking Systems (ATS) that scan for specific terms.
             </p>

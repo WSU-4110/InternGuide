@@ -1,18 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import '../../styles/ResourceDetail.css';
 
 const PortfolioBuilding = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="resource-detail-page">
       <div className="resource-detail-container">
-        <button className="back-button" onClick={() => navigate('/resources')}>
-          ← Back to Resources
-        </button>
-
         <div className="resource-detail-header">
-          <div className="resource-detail-icon">🎨</div>
           <h1 className="resource-detail-title">Building Your Portfolio</h1>
           <p className="resource-detail-description">
             Create an impressive portfolio showcasing your projects and work
@@ -48,7 +40,7 @@ const PortfolioBuilding = () => {
           </div>
 
           <div className="tip-box">
-            <h3 className="tip-box-title">💡 Pro Tip</h3>
+            <h3 className="tip-box-title">Pro Tip</h3>
             <p className="tip-box-text">
               Quality over quantity! It's better to have 3 well-documented, polished projects than 10 incomplete ones. Focus on projects that demonstrate skills relevant to your target internships.
             </p>

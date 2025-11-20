@@ -1,18 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import '../../styles/ResourceDetail.css';
 
 const InternshipSuccess = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="resource-detail-page">
       <div className="resource-detail-container">
-        <button className="back-button" onClick={() => navigate('/resources')}>
-          ← Back to Resources
-        </button>
-
         <div className="resource-detail-header">
-          <div className="resource-detail-icon">⭐</div>
           <h1 className="resource-detail-title">Making the Most of Your Internship</h1>
           <p className="resource-detail-description">
             Tips to maximize learning and build relationships during your internship
@@ -44,7 +36,7 @@ const InternshipSuccess = () => {
           </div>
 
           <div className="tip-box">
-            <h3 className="tip-box-title">💡 Pro Tip</h3>
+            <h3 className="tip-box-title">Pro Tip</h3>
             <p className="tip-box-text">
               Keep an "internship journal" where you document your projects, accomplishments, and lessons learned each week. This will be invaluable when updating your resume and preparing for future interviews.
             </p>

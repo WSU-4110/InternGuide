@@ -1,18 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import '../../styles/ResourceDetail.css';
 
 const Networking = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="resource-detail-page">
       <div className="resource-detail-container">
-        <button className="back-button" onClick={() => navigate('/resources')}>
-          ← Back to Resources
-        </button>
-
         <div className="resource-detail-header">
-          <div className="resource-detail-icon">🤝</div>
           <h1 className="resource-detail-title">Networking for Internships</h1>
           <p className="resource-detail-description">
             Leverage LinkedIn, career fairs, and connections to find opportunities
@@ -45,7 +37,7 @@ const Networking = () => {
           </div>
 
           <div className="tip-box">
-            <h3 className="tip-box-title">💡 Pro Tip</h3>
+            <h3 className="tip-box-title">Pro Tip</h3>
             <p className="tip-box-text">
               When reaching out on LinkedIn, personalize your connection request. Mention something specific about their background or work that interested you, and be clear about why you want to connect.
             </p>

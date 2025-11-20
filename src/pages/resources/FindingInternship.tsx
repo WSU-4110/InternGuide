@@ -1,18 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import '../../styles/ResourceDetail.css';
 
 const FindingInternship = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="resource-detail-page">
       <div className="resource-detail-container">
-        <button className="back-button" onClick={() => navigate('/resources')}>
-          ← Back to Resources
-        </button>
-
         <div className="resource-detail-header">
-          <div className="resource-detail-icon">🎯</div>
           <h1 className="resource-detail-title">Finding Your First Internship</h1>
           <p className="resource-detail-description">
             Step-by-step guide to discover and apply for internships that match your career goals
@@ -46,7 +38,7 @@ const FindingInternship = () => {
           </div>
 
           <div className="tip-box">
-            <h3 className="tip-box-title">💡 Pro Tip</h3>
+            <h3 className="tip-box-title">Pro Tip</h3>
             <p className="tip-box-text">
               Start your search early! Large tech companies and competitive programs often fill positions 6-9 months in advance. Set up job alerts and check positions weekly.
             </p>

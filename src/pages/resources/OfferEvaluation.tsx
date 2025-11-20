@@ -1,18 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import '../../styles/ResourceDetail.css';
 
 const OfferEvaluation = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="resource-detail-page">
       <div className="resource-detail-container">
-        <button className="back-button" onClick={() => navigate('/resources')}>
-          ← Back to Resources
-        </button>
-
         <div className="resource-detail-header">
-          <div className="resource-detail-icon">⚖️</div>
           <h1 className="resource-detail-title">Evaluating Internship Offers</h1>
           <p className="resource-detail-description">
             How to compare multiple internship offers and make the best decision
@@ -50,7 +42,7 @@ const OfferEvaluation = () => {
           </div>
 
           <div className="tip-box">
-            <h3 className="tip-box-title">💡 Pro Tip</h3>
+            <h3 className="tip-box-title">Pro Tip</h3>
             <p className="tip-box-text">
               Create a decision matrix: list all offers as columns and important factors as rows. Rate each offer (1-10) for each factor, then multiply by importance weight. This systematic approach helps clarify your priorities.
             </p>

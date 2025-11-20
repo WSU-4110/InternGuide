@@ -1,70 +1,57 @@
 .resource-detail-page {
   min-height: 100vh;
-  background: #f9fafb;
-  padding: 40px 24px;
+  background: var(--bg);
 }
 
 .resource-detail-container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  margin-bottom: 32px;
-  font-size: 15px;
-  color: #374151;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: inherit;
-}
-
-.back-button:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
+  max-width: 100%;
+  margin: 0;
 }
 
 .resource-detail-header {
-  text-align: center;
-  margin-bottom: 48px;
+  background: var(--hero-bg);
+  padding: 3rem 3rem 5rem;
+  text-align: left;
+  margin-bottom: 0;
 }
 
 .resource-detail-icon {
-  font-size: 64px;
-  margin-bottom: 16px;
+  display: none;
 }
 
 .resource-detail-title {
-  font-size: 42px;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #111827;
-  margin: 0 0 16px 0;
+  color: var(--hero-text);
+  margin: 0 0 1rem 0;
   line-height: 1.2;
+  letter-spacing: -0.025em;
 }
 
 .resource-detail-description {
-  font-size: 18px;
-  color: #6b7280;
+  font-size: 1.125rem;
+  color: var(--hero-text-soft);
   margin: 0;
   line-height: 1.6;
+  max-width: 700px;
 }
 
 .resource-detail-content {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 48px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: transparent;
+  border-radius: 0;
+  padding: 3rem 3.5rem;
+  box-shadow: none;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
 }
 
 .content-section {
-  margin-bottom: 40px;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(31, 79, 214, 0.1);
 }
 
 .content-section:last-child {
@@ -72,85 +59,94 @@
 }
 
 .section-title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #111827;
-  margin: 0 0 16px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 1rem 0;
 }
 
 .section-text {
-  font-size: 16px;
-  color: #374151;
-  line-height: 1.8;
-  margin: 0 0 16px 0;
+  font-size: 0.9375rem;
+  color: var(--muted-text);
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
 }
 
 .section-list {
-  margin: 0 0 16px 0;
-  padding-left: 24px;
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style: disc;
 }
 
 .section-list li {
-  font-size: 16px;
-  color: #374151;
-  line-height: 1.8;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  color: var(--muted-text);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.section-list li:last-child {
+  margin-bottom: 0;
 }
 
 .section-list li strong {
-  color: #111827;
+  color: var(--text);
   font-weight: 600;
 }
 
 .tip-box {
-  background: #f0f9ff;
-  border-left: 4px solid #3b82f6;
-  padding: 20px 24px;
-  margin: 24px 0;
-  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid rgba(31, 79, 214, 0.2);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  border-left: 3px solid var(--hero-bg);
 }
 
 .tip-box-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #1e40af;
-  margin: 0 0 8px 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.5rem 0;
 }
 
 .tip-box-text {
-  font-size: 15px;
-  color: #374151;
+  font-size: 0.9375rem;
+  color: var(--muted-text);
   line-height: 1.6;
   margin: 0;
 }
 
 @media (max-width: 768px) {
-  .resource-detail-page {
-    padding: 24px 16px;
-  }
-
-  .resource-detail-icon {
-    font-size: 48px;
+  .resource-detail-header {
+    padding: 2rem 1.5rem 3rem;
   }
 
   .resource-detail-title {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .resource-detail-description {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .resource-detail-content {
-    padding: 32px 24px;
+    padding: 2rem 1.5rem;
+    margin: 0 auto;
   }
 
   .section-title {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   .section-text,
   .section-list li {
-    font-size: 15px;
+    font-size: 0.9375rem;
+  }
+
+  .content-section {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
   }
 }
