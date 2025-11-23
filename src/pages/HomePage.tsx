@@ -123,11 +123,6 @@ function HomePage() {
             ))}
           </ul>
           <div className="contact-card">
-            <h3>Need to reach us?</h3>
-            <p>
-              Drop a note at <a href="mailto:team@internguide.com">team@internguide.com</a> and we&apos;ll respond
-              within one business day.
-            </p>
             <div className="preview-status" aria-live="polite">
               {preview ? (
                 <>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import mermaid from 'mermaid'
 
 
@@ -13,6 +14,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
 const STORAGE_KEY = 'internguide_mindmaps'
 
 function MindMapPage() {
+  const navigate = useNavigate()
   const [userInput, setUserInput] = useState('')
   const [savedGoals, setSavedGoals] = useState<GoalWithPlan[]>([])
   const mermaidContainerRefs = useRef<Map<number, HTMLDivElement>>(new Map())
@@ -53,7 +55,15 @@ function MindMapPage() {
   useEffect(() => {
     mermaid.initialize({
       startOnLoad: false,
-      theme: 'default',
+      theme: 'base',
+      themeVariables: {
+        primaryColor: '#e1f5ff',
+        primaryTextColor: '#1a1a1a',
+        primaryBorderColor: '#0066cc',
+        lineColor: '#666666',
+        secondaryColor: '#f0f0f0',
+        tertiaryColor: '#fff4e6',
+      },
       securityLevel: 'loose',
       mindmap: {
         padding: 20,
@@ -290,6 +300,12 @@ function MindMapPage() {
                             }
                           }}
                         />
+                        <button 
+                          onClick={() => navigate(`/mind-map/${index}`)}
+                          className="button button--primary view-detail-button"
+                        >
+                          View Details & Chat
+                        </button>
                       </div>
                     )}
                   </div>
