@@ -204,24 +204,17 @@ function MindMapPage() {
 
   return (
     <div className="mindmap-page">
+
       <section className="hero mindmap-hero">
         <div className="hero__body">
           <span className="hero__tag">Mind Map workspace</span>
-          <h1>Sketch the plan before the internship search begins.</h1>
+          <h1>Turn your internship goals into a visual roadmap.</h1>
           <p>
-            This view lets students visualize every branch of their recruiting journey&mdash;from self-assessment
-            prompts to weekly action items. We&apos;ll plug in the real data once the builder is ready.
+            Use this workspace to break big goals into smaller steps, explore different paths, and see your progress at a glance. 
+            As you add goals, we&apos;ll generate interactive mindmaps you can open, explore, and chat about in more detail.
           </p>
-          <div className="hero__actions">
-            <a className="button button--primary" href="#mindmap-preview">
-              Preview the canvas
-            </a>
-            <a className="button button--secondary" href="/#contact">
-              Say hello
-            </a>
-          </div>
         </div>
-      </section>
+        </section>
 
       <div className="main-content mindmap-content">
         <section className="section goal-input-section">
