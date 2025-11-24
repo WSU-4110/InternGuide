@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import mermaid from 'mermaid'
 
 
@@ -13,6 +14,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
 const STORAGE_KEY = 'internguide_mindmaps'
 
 function MindMapPage() {
+  const navigate = useNavigate()
   const [userInput, setUserInput] = useState('')
   const [savedGoals, setSavedGoals] = useState<GoalWithPlan[]>([])
   const mermaidContainerRefs = useRef<Map<number, HTMLDivElement>>(new Map())
@@ -53,7 +55,15 @@ function MindMapPage() {
   useEffect(() => {
     mermaid.initialize({
       startOnLoad: false,
-      theme: 'default',
+      theme: 'base',
+      themeVariables: {
+        primaryColor: '#e1f5ff',
+        primaryTextColor: '#1a1a1a',
+        primaryBorderColor: '#0066cc',
+        lineColor: '#666666',
+        secondaryColor: '#f0f0f0',
+        tertiaryColor: '#fff4e6',
+      },
       securityLevel: 'loose',
       mindmap: {
         padding: 20,
@@ -194,24 +204,17 @@ function MindMapPage() {
 
   return (
     <div className="mindmap-page">
+
       <section className="hero mindmap-hero">
         <div className="hero__body">
           <span className="hero__tag">Mind Map workspace</span>
-          <h1>Sketch the plan before the internship search begins.</h1>
+          <h1>Turn your internship goals into a visual roadmap.</h1>
           <p>
-            This view lets students visualize every branch of their recruiting journey&mdash;from self-assessment
-            prompts to weekly action items. We&apos;ll plug in the real data once the builder is ready.
+            Use this workspace to break big goals into smaller steps, explore different paths, and see your progress at a glance. 
+            As you add goals, we&apos;ll generate interactive mindmaps you can open, explore, and chat about in more detail.
           </p>
-          <div className="hero__actions">
-            <a className="button button--primary" href="#mindmap-preview">
-              Preview the canvas
-            </a>
-            <a className="button button--secondary" href="/#contact">
-              Say hello
-            </a>
-          </div>
         </div>
-      </section>
+        </section>
 
       <div className="main-content mindmap-content">
         <section className="section goal-input-section">
@@ -290,6 +293,12 @@ function MindMapPage() {
                             }
                           }}
                         />
+                        <button 
+                          onClick={() => navigate(`/mind-map/${index}`)}
+                          className="button button--primary view-detail-button"
+                        >
+                          View Details & Chat
+                        </button>
                       </div>
                     )}
                   </div>

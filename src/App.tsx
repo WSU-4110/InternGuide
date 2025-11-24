@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import MindMapPage from './pages/MindMapPage'
+import MindMapDetailPage from './pages/MindMapDetailPage'
 import Resume from './pages/Resume'
+import ResumeFeedback from './pages/ResumeFeedback'
 import FAQPage from './pages/FAQPage'
 import JobTrackerPage from './pages/JobTrackerPage'
 import LoginPage from './pages/LoginPage'
@@ -53,7 +55,7 @@ function App() {
             <nav className="site-nav">
               <NavLink to="/" end className={navLinkClasses}>Home</NavLink>
               <NavLink to="/mind-map" className={navLinkClasses}>Mind Map</NavLink>
-              <NavLink to="/resume" className={navLinkClasses}>Resume</NavLink>
+              <NavLink to="/resume-feedback" className={navLinkClasses}>Resume</NavLink>
               <NavLink to="/job-tracker" className={navLinkClasses}>Job Tracker</NavLink>
               <NavLink to="/faq" className={navLinkClasses}>FAQ</NavLink>
               <NavLink to="/resources" className={navLinkClasses}>Resources</NavLink>
@@ -74,7 +76,9 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/mind-map" element={<MindMapPage />} />
+                <Route path="/mind-map/:id" element={<MindMapDetailPage />} />
                 <Route path="/resume" element={<Resume />} />
+                <Route path="/resume-feedback" element={<ResumeFeedback />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/job-tracker" element={<JobTrackerPage />} />
                 <Route path="/faq" element={<FAQPage />} />
@@ -113,17 +117,15 @@ function App() {
 export default App
 
 function AuthButton({ onOpen }: { onOpen: () => void }) {
-  try {
-    const { user, signOut } = useAuth()
-    if (user) {
-      return (
-        <>
-          <span style={{ marginRight: '0.5rem' }}>{user.email}</span>
-          <button className="button" onClick={() => signOut()}>Logout</button>
-        </>
-      )
-    }
-  } catch (e) {}
+  const { user, signOut } = useAuth()
+  if (user) {
+    return (
+      <>
+        <span style={{ marginRight: '0.5rem' }}>{user.email}</span>
+        <button className="button" onClick={() => signOut()}>Logout</button>
+      </>
+    )
+  }
   return (
     <button className="button button--primary" onClick={onOpen}>
       Login
