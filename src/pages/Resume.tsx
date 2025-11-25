@@ -1,7 +1,9 @@
+import React from "react"
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../contexts/AuthContext'
+
 
 const featureHighlights = [
   {
@@ -10,7 +12,7 @@ const featureHighlights = [
       'Upload PDF or DOCX and let InternGuide auto-detect sections and keywords.',
       'Spot incomplete bullets with AI prompts that suggest specific metrics to add.',
       'Keep versions side by side so you can roll back or compare edits instantly.',
-    ],
+    ]
   },
   {
     title: 'Tailored feedback loops',
@@ -176,6 +178,7 @@ function Resume() {
               Upload new resume
             </button>
             <input
+              data-testid="file-input"
               ref={fileInputRef}
               type="file"
               accept=".pdf,.doc,.docx"
