@@ -14,7 +14,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:a6": "jest --config ./jest.config.ts --runInBand src/mindmap/mindmap.service.spec.ts src/mindmap/mindmap.controller.spec.ts src/supabase/supabase.service.spec.ts src/app.service.spec.ts",
+    "build:a6": "npm run build && npm run test:a6"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",

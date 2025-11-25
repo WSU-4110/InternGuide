@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { supabase } from '../lib/supabaseClient'
@@ -128,7 +127,10 @@ function Resume() {
         // Save resume path (or URL) to profiles table
         const { error: upsertError } = await supabase
           .from('profiles')
-          .upsert({ id: user.id, resume_path: path })
+          .upsert({ id: user.id, resume_path: path } satisfies {
+            id: string
+            resume_path: string
+          })
 
         if (upsertError) {
           console.error('Failed to save profile resume path', upsertError)
