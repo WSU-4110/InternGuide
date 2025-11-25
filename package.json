@@ -8,8 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest --config jest.config.js --runInBand",
-    "build:a6": "npm run build && npm test"
+    "test": "vitest"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.32.0",
