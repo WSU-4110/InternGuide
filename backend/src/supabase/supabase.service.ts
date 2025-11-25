@@ -7,8 +7,7 @@ dotenv.config()
 
 @Injectable()
 export class SupabaseService implements OnModuleInit {
-  private client: SupabaseClient
-
+private client!: SupabaseClient
   onModuleInit() {
     const url = process.env.SUPABASE_URL
     // Support both SUPABASE_KEY and SUPABASE_SERVICE_ROLE_KEY for flexibility

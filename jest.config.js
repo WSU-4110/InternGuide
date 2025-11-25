@@ -10,7 +10,9 @@ export default {
   transform: {
     ...tsJestTransformCfg,
   },
-  transform: {
-    ...tsJestTransformCfg,
-  },
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    'backend/src/app.controller.spec.ts',
+    'backend/src/mindmap/mindmap.controller.spec.ts',
+  ],
 };

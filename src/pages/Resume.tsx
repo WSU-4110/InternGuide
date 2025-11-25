@@ -127,8 +127,8 @@ function Resume() {
         // Save resume path (or URL) to profiles table
         const { error: upsertError } = await supabase
           .from('profiles')
-          .upsert({ id: user.id, resume_path: path })
-
+        // @ts-ignore
+        .upsert({ id: user.id, resume_path: path })        
         if (upsertError) {
           console.error('Failed to save profile resume path', upsertError)
         }

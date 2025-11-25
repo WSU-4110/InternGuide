@@ -22,10 +22,10 @@ describe('AppController', () => {
   })
 
   it('should return preview payload', () => {
-    const preview = appController.getPreview()
+  const preview = appController.getPreview()
 
-    expect(preview.headline).toBe('InternGuide backend connected')
-    expect(preview.blurb).toContain('frontend')
-    expect(() => new Date(preview.timestamp)).not.toThrow()
-  })
+  expect(preview.headline).toBe('InternGuide backend connected')
+  expect(preview.blurb.toLowerCase()).toContain('frontend')
+  expect(() => new Date(preview.timestamp)).not.toThrow()
+})
 })

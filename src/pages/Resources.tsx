@@ -1,6 +1,5 @@
-import { useState, useMemo } from 'react';
 import ResourceCard from '../components/ResourceCard';
-import { resourcesData, designedForOptions, categoryOptions } from '../data/resourcesData';
+import { resourcesData } from '../data/resourcesData';
 import '../styles/Resources.css';
 
 const Resources = () => {
