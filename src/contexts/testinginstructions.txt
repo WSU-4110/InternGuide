@@ -1,0 +1,2 @@
+open terminal and run:
+npx jest src/contexts/AuthContext.test.tsx

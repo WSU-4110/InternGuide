@@ -1,0 +1,3 @@
+to test supabase, run:
+cd backend
+npx jest src/supabase/supabase.service.spec.ts
