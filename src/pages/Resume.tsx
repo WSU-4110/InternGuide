@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useEffect, useRef, useState } from 'react'
+=======
+import React, { useEffect, useRef, useState } from 'react'
+>>>>>>> 251e6e3 (Add Overview Page UI and content)
 import { useNavigate, useLocation } from 'react-router-dom'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../contexts/AuthContext'
@@ -125,12 +129,18 @@ function Resume() {
         }
 
         // Save resume path (or URL) to profiles table
+<<<<<<< HEAD
         const { error: upsertError } = await supabase
           .from('profiles')
           .upsert({ id: user.id, resume_path: path } satisfies {
             id: string
             resume_path: string
           })
+=======
+        const { error: upsertError } = await (supabase
+          .from('profiles') as any)
+          .upsert({ id: user.id, resume_path: path })
+>>>>>>> 251e6e3 (Add Overview Page UI and content)
 
         if (upsertError) {
           console.error('Failed to save profile resume path', upsertError)
