@@ -53,7 +53,6 @@ function App() {
               InternGuide
             </NavLink>
             <nav className="site-nav">
-              <NavLink to="/" end className={navLinkClasses}>Home</NavLink>
               <NavLink to="/overview" className={navLinkClasses}>Overview</NavLink>
               <NavLink to="/mind-map" className={navLinkClasses}>Mind Map</NavLink>
               <NavLink to="/resume-feedback" className={navLinkClasses}>Resume</NavLink>
