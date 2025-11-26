@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
-import HomePage from './pages/HomePage'
 import OverviewPage from './pages/OverviewPage'
 import MindMapPage from './pages/MindMapPage'
 import MindMapDetailPage from './pages/MindMapDetailPage'
@@ -76,7 +75,6 @@ function App() {
           <main className="page-shell">
             <div className="page-shell__inner">
               <Routes>
-                <Route path="/" element={<HomePage />} />
                 <Route path="/overview" element={<OverviewPage />} />
                 <Route path="/mind-map" element={<MindMapPage />} />
                 <Route path="/mind-map/:id" element={<MindMapDetailPage />} />
