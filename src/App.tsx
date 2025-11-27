@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
-import HomePage from './pages/HomePage'
 import OverviewPage from './pages/OverviewPage'
 import MindMapPage from './pages/MindMapPage'
 import MindMapDetailPage from './pages/MindMapDetailPage'
@@ -54,7 +53,6 @@ function App() {
               InternGuide
             </NavLink>
             <nav className="site-nav">
-              <NavLink to="/" end className={navLinkClasses}>Home</NavLink>
               <NavLink to="/overview" className={navLinkClasses}>Overview</NavLink>
               <NavLink to="/mind-map" className={navLinkClasses}>Mind Map</NavLink>
               <NavLink to="/resume-feedback" className={navLinkClasses}>Resume</NavLink>
@@ -76,7 +74,6 @@ function App() {
           <main className="page-shell">
             <div className="page-shell__inner">
               <Routes>
-                <Route path="/" element={<HomePage />} />
                 <Route path="/overview" element={<OverviewPage />} />
                 <Route path="/mind-map" element={<MindMapPage />} />
                 <Route path="/mind-map/:id" element={<MindMapDetailPage />} />
